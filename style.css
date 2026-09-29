@@ -1193,7 +1193,7 @@ html {
     padding: 0px 100px;
 }
 #footer {
-    padding: 50px 100px;
+    padding: 50px 140px;
     background: #01020e;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
