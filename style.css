@@ -2044,3 +2044,25 @@ html {
         gap: 15px;
     }
 }
+
+/* ============================================================
+   AOS ANIMATION SAFETY & OVERFLOW PROTECTION
+   ============================================================ */
+
+/* Ensure AOS animated elements don't block pointer events */
+[data-aos] {
+    pointer-events: auto !important;
+}
+
+/* Prevent horizontal translate animations from breaking layout or causing overflow on mobile & tablet */
+@media screen and (max-width: 768px) {
+    [data-aos="fade-left"],
+    [data-aos="fade-right"],
+    [data-aos="fade-down-right"],
+    [data-aos="fade-up-right"],
+    [data-aos="fade-up-left"] {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: opacity 0.5s ease !important;
+    }
+}

@@ -117,10 +117,10 @@
             </ul>
             <button class="about-btn"> <a href="">Discover More</a></button>
         </div>
-        <div class="about-img">
-            <img data-aos="fade-up" src="./image/about1.webp" id="about-img1" alt="about image">
-            <img data-aos="fade-right" src="./image/about2.webp" id="about-img2" alt="about image">
-            <div data-aos="fade-down-right" class="about-stats">
+        <div class="about-img" data-aos="fade-up">
+            <img src="./image/about1.webp" id="about-img1" alt="about image">
+            <img src="./image/about2.webp" id="about-img2" alt="about image">
+            <div class="about-stats">
                 <div>
                     <h2>20+</h2>
                     <p>Years of Expertise</p>
@@ -192,14 +192,12 @@
             <h3>Portfolio</h3>
             <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
         </header>
-        <div class="portfolio-filter">
-            <button type="button" class="portfolio-btn-active" data-filter="all" data-aos="fade-up">All
-                Projects</button>
-            <button class="portfolio-btn-passive" type="button" data-aos="fade-up" data-filter="web">Web Design</button>
-            <button type="button" class="portfolio-btn-passive" data-filter="mobile" data-aos="fade-up">Mobile
-                Apps</button>
-            <button type="button" class="portfolio-btn-passive" data-filter="brand" data-aos="fade-up">Branding</button>
-            <button type="button" class="portfolio-btn-passive" data-filter="ui" data-aos="fade-up">UI/UX</button>
+        <div class="portfolio-filter" data-aos="fade-up">
+            <button type="button" class="portfolio-btn-active" data-filter="all">All Projects</button>
+            <button class="portfolio-btn-passive" type="button" data-filter="web">Web Design</button>
+            <button type="button" class="portfolio-btn-passive" data-filter="mobile">Mobile Apps</button>
+            <button type="button" class="portfolio-btn-passive" data-filter="brand">Branding</button>
+            <button type="button" class="portfolio-btn-passive" data-filter="ui">UI/UX</button>
         </div>
         <div class="portfolio-cards-pt">
             <div class="portfolio-cards" data-card="web" data-aos="fade-up">
@@ -409,7 +407,7 @@
             <h3>Team</h3>
             <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
         </header>
-        <div class="team-cards-pt owl-carousel" data-aos="fade-up">
+        <div class="team-cards-pt owl-carousel">
             <div class="team-cards">
                 <div class="team-card-img">
                     <img src="./image/person-5.webp" alt="team Image" />
@@ -633,6 +631,9 @@
                     card.style.display = "none"
                 }
             })
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
         })
     })
 
@@ -718,7 +719,13 @@
     })
 </script>
 <script>
-    AOS.init();
+    AOS.init({
+        duration: 700,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 50,
+        disableMutationObserver: false
+    });
 </script>
 
 </html>
