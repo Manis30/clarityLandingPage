@@ -5,9 +5,35 @@
     font-family: Poppins, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge, Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+}
+
 body {
     background: var(--background);
     color: var(--text);
+    overflow-x: hidden;
+    width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 :root {
@@ -33,63 +59,76 @@ body {
 }
 
 .mobile-nav-list {
-    background: #03051f;
+    background: #131428;
+    border: 1px solid #292944;
+    border-radius: 20px;
     width: 100%;
-    height: 80%;
-    padding: 20px 50px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 
 .mobile-nav-links-list {
-
     list-style: none;
 }
 
 .mobile-nav-links-list li {
+    margin-bottom: 18px;
+}
 
-    margin-bottom: 15px;
+.mobile-nav-links-list li:last-child {
+    margin-bottom: 0px;
 }
 
 .mobile-nav-links-list a {
-
     text-decoration: none;
-
-    color: var(--text);
-
+    color: var(--primary-light);
     font-weight: 600;
-
     font-size: 18px;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav-links-list a:hover {
+    color: var(--text);
+    transform: translateX(5px);
 }
 
 .mobile-menu {
-
     position: fixed;
-
-    background: rgb(33 37 41 / 80%);
-
-
+    background: rgba(5, 7, 30, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     justify-content: center;
-
-    align-items: self-start;
-
+    align-items: flex-start;
     inset: 0;
-
     z-index: 9998;
-
-    padding-top: 90px;
+    padding: 80px 20px 30px;
     width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .menu-cancel {
-
     position: absolute;
-
-    right: 4%;
+    top: 25px;
+    right: 25px;
 }
 
 .menu-cancel i {
-
     cursor: pointer;
+    font-size: 26px;
+    color: var(--text);
+    padding: 6px;
+    transition: color 0.3s ease;
+}
+
+.menu-cancel i:hover {
+    color: var(--primary);
 }
 
 .nav-links-list {
@@ -269,6 +308,7 @@ html {
     display: flex;
     gap: 35px;
     margin: 30px 0px;
+    flex-wrap: wrap;
 }
 
 .main-cards {
@@ -288,7 +328,7 @@ html {
 
 .main-cards p {
     font-size: 14px;
-    line-height: 0px;
+    line-height: 1.3;
     margin-top: 10px;
 }
 
@@ -927,15 +967,16 @@ html {
     font-size: 32px;
 }
 .team-cards-pt {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-   gap: 50px;
+    display: block;
+    width: 100%;
+    padding: 10px 0 25px 0;
 }
 .team-cards {
     background: #131428;
     border: 1px solid #292944;
     border-radius: 20px;
     transition: all 0.3s ease;
+    margin: 10px 5px;
 }
 .team-cards:hover {
     transform: translateY(-20px);
@@ -1038,6 +1079,9 @@ html {
     border: 1px solid #292944;
     height: 90px;
     border-radius: 5px;
+    resize: vertical;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 .contact-form button {
     width: 100%;
@@ -1254,367 +1298,749 @@ html {
 .footer-link-lists a:hover {
     color: var(--primary);
 }
-@media screen and (max-width:480px) {
+/* ============================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ============================================================ */
+
+/* Laptop / Small Desktop (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+    .navbar {
+        margin: 20px 3%;
+        padding: 15px 25px;
+    }
+
+    .nav-links-list {
+        gap: 30px;
+    }
+
+    .main-section {
+        padding: 40px 50px;
+    }
+
+    #about {
+        padding: 80px 50px 180px 50px;
+        gap: 30px;
+    }
+
+    #service {
+        padding: 0 50px 70px 50px;
+    }
+
+    #portfolio {
+        padding: 0 50px 70px 50px;
+    }
+
+    .portfolio-cards-pt {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    #stats {
+        padding: 0 50px;
+    }
+
+    #team {
+        padding: 0 50px 50px 50px;
+    }
+
+    #contact {
+        padding: 0 50px 60px 50px;
+    }
+
+    #footer {
+        padding: 50px 50px;
+        gap: 25px;
+    }
+}
+
+/* Tablet (max-width: 991px) */
+@media screen and (max-width: 991px) {
     .nav-link-pt {
         display: none;
     }
+
     .nav-get-started {
         display: none;
     }
+
     .mobile-bar {
         display: block;
     }
+
+    .navbar {
+        margin: 15px 4%;
+        padding: 12px 25px;
+        justify-content: space-between;
+    }
+
+    .hero-logo {
+        flex: 0 0 auto;
+    }
+
     .main-section {
         flex-direction: column;
-        padding: 20px 20px;
-    }
-    .main-content h1 {
-        font-size: 40px;
-    }
-    #about {
-        padding: 40px 20px;
-    }
-    .main-content {
+        padding: 30px 40px;
         text-align: center;
     }
+
+    .main-content {
+        margin-bottom: 30px;
+    }
+
+    .main-content h1 {
+        font-size: 38px;
+    }
+
+    .main-content p {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .main-btns {
         justify-content: center;
     }
-    .section-title h3 {
-        font-size: 25px;
-    }
-    .about-content h2 {
-        font-size: 30px;
-    }
-    .main-banner {
-        margin: 20px 0px;
-    }
-    #service {
-        padding: 50px 20px;
-    }
-    #portfolio {
-        padding: 50px 20px;
-    }
-    .portfolio-filter {
-        gap: 10px;
-    }
-    .portfolio-ad {
-        padding: 10px;
-    }
-    #stats {
-        padding: 50px 20px;
-    }
-    .portfolio-cards-pt {
-        grid-template-columns: 1fr;
-    }
-    .team-cards-pt {
-        grid-template-columns: 1fr;
-    }
-    #about-img1 {
-        width: 90%;
-    }
-    .stats-info {
-        flex-direction: column;
-    }
-    #team {
-        padding: 50px 20px;
-    }
-    #contact {
-        padding: 50px 20px;
-    }
-    .contact-card-pt {
-        flex-direction: column;
-    }
-    #footer {
-        padding: 50px 30px;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    #about-img2 {
-        width: 60%;
-        height: 60%;
-    }
-    #stats-proj-btn {
-        margin-right: 0px;
-    }
-    .contact-card-2 h2 {
-        font-size: 25px;
-    }
-    .stats-content h2 {
-        font-size: 25px;
-    }
-    .about-stats {
-        right: -2%;
-    }
-    .contact-card-1 h3 {
-        font-size: 20px;
-    }
-    .about-stats {
-        flex-direction: column;
-        padding: 5px;
-    }
-    .about-stats h2 {
-        font-size: 20px;
-    }
-    #stats-proj-btn {
-        width: 100%;
-        text-align: center;
-        font-weight: 600;
-    }
-    #stats-view-btn {
-        width: 100%;
-        text-align: center;
-        font-weight: 600;
-        margin-top: 20px;
-    }
-    .contact-card-1 {
-        margin-top: 20px;
-    }
-    .section-title {
-        margin-bottom: 30px;
-    }
-}
-@media screen and (min-width:481px) and (max-width:790px) {
-    .nav-link-pt {
-        display: none;
-    }
-    .nav-get-started {
-        display: none;
-    }
-    .mobile-bar {
-        display: block;
-    }
-    .main-section {
-        flex-direction: column;
-        padding: 20px 20px;
-    }
-    .main-content h1 {
-        font-size: 40px;
-    }
-    #about {
-        padding: 40px 40px;
-    }
-    .main-content {
-        text-align: center;
-    }
-    .main-btns {
-        justify-content: center;
-    }
-    .section-title h3 {
-        font-size: 25px;
-    }
-    .about-content h2 {
-        font-size: 30px;
-    }
-    .main-banner {
-        margin: 20px 0px;
-    }
-    #service {
-        padding: 50px 40px;
-    }
-    #portfolio {
-        padding: 50px 40px;
-    }
-    .portfolio-filter {
-        gap: 10px;
-    }
-    .portfolio-ad {
-        padding: 10px;
-    }
-    #stats {
-        padding: 50px 40px;
-    }
-    .portfolio-cards-pt {
-        grid-template-columns: 1fr;
-    }
-    .team-cards-pt {
-        grid-template-columns: 1fr;
-    }
-    #about-img1 {
-        width: 90%;
-    }
-    .stats-info {
-        flex-direction: column;
-    }
-    #team {
-        padding: 50px 40px;
-    }
-    #contact {
-        padding: 50px 40px;
-    }
-    .contact-card-pt {
-        flex-direction: column;
-    }
-    #footer {
-        padding: 50px 30px;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    #about-img2 {
-        width: 60%;
-        height: 60%;
-        left: 4%;
-    }
-    #stats-proj-btn {
-        margin-right: 0px;
-    }
-    .contact-card-2 h2 {
-        font-size: 25px;
-    }
-    .stats-content h2 {
-        font-size: 25px;
-    }
-    .about-stats {
-        right: 7%;
-    }
-    .about-img {
-        display: flex;
-        justify-content: center;
-    }
-    .contact-card-1 h3 {
-        font-size: 20px;
-    }
-    .about-stats {
-        flex-direction: column;
-        padding: 5px;
-    }
-    .about-stats h2 {
-        font-size: 20px;
-    }
-    #stats-proj-btn {
-        width: 100%;
-        text-align: center;
-        font-weight: 600;
-    }
-    #stats-view-btn {
-        width: 100%;
-        text-align: center;
-        font-weight: 600;
-        margin-top: 20px;
-    }
-    .contact-card-1 {
-        margin-top: 20px;
-    }
-    .section-title {
-        margin-bottom: 30px;
-    }
-}
-@media screen and (min-width:791px) and (max-width:1024px) {
+
     .main-cards {
         justify-content: center;
-    }
-    .nav-links-list {
-        gap: 20px;
-    }
-    .main-section {
-        flex-direction: column;
-        padding: 20px 20px;
-    }
-    .main-content h1 {
-        font-size: 40px;
-    }
-    #about {
-        padding: 40px 40px;
-    }
-    .main-content {
-        text-align: center;
-    }
-    .main-btns {
-        justify-content: center;
-    }
-    .section-title h3 {
-        font-size: 25px;
-    }
-    .about-content h2 {
-        font-size: 30px;
-    }
-    .main-banner {
-        margin: 20px 0px;
-    }
-    #service {
-        padding: 50px 40px;
-    }
-    #portfolio {
-        padding: 50px 40px;
-    }
-    .portfolio-filter {
-        gap: 10px;
-    }
-    .portfolio-ad {
-        padding: 10px;
-    }
-    #stats {
-        padding: 50px 40px;
-    }
-    .portfolio-cards-pt {
-        grid-template-columns: 1fr;
-    }
-    .team-cards-pt {
-        grid-template-columns: 1fr;
-    }
-    #about-img1 {
-        width: 90%;
-    }
-    .stats-info {
-        flex-direction: column;
-    }
-    #team {
-        padding: 50px 40px;
-    }
-    #contact {
-        padding: 50px 40px;
-    }
-    .contact-card-pt {
-        flex-direction: column;
-    }
-    #footer {
-        padding: 50px 30px;
-        grid-template-columns: 1fr 1fr;
         gap: 30px;
     }
+
+    .main-banner {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    #about {
+        grid-template-columns: 1fr;
+        padding: 60px 40px 140px 40px;
+        gap: 50px;
+    }
+
+    .about-content {
+        text-align: left;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .about-img {
+        max-width: 550px;
+        margin: 0 auto;
+        width: 100%;
+        display: block;
+    }
+
+    #about-img1 {
+        width: 92%;
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        max-height: 420px;
+    }
+
     #about-img2 {
         width: 60%;
-        height: 60%;
-        left: 4%;
+        height: auto;
+        max-height: 280px;
+        top: 40%;
+        left: 2%;
     }
-    #stats-proj-btn {
-        margin-right: 0px;
-    }
-    .contact-card-2 h2 {
-        font-size: 25px;
-    }
-    .stats-content h2 {
-        font-size: 25px;
-    }
+
     .about-stats {
-        right: 7%;
+        top: -15px;
+        right: 2%;
+        padding: 15px 20px;
     }
+
+    #service {
+        padding: 0 40px 60px 40px;
+    }
+
+    .service-cards-pt {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    #portfolio {
+        padding: 0 40px 60px 40px;
+    }
+
+    .portfolio-cards-pt {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    #stats {
+        padding: 0 40px;
+    }
+
+    .stats-cards-pt {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .stats-info {
+        flex-direction: column;
+        gap: 40px;
+        margin: 50px 0;
+    }
+
+    .stats-img {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .stats-img img {
+        border-radius: 15px;
+        max-height: 400px;
+    }
+
+    .stats-content h2 {
+        font-size: 28px;
+    }
+
+    #team {
+        padding: 0 40px 50px 40px;
+    }
+
+    #contact {
+        padding: 0 40px 60px 40px;
+    }
+
+    .contact-card-pt {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-card-1 {
+        margin-top: 0;
+        padding: 35px 30px;
+    }
+
+    .contact-card-2 h2 {
+        font-size: 28px;
+    }
+
+    #footer {
+        padding: 50px 40px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 25px;
+    }
+
+    .footer-contact-info {
+        grid-column: span 2;
+    }
+}
+
+/* Mobile Landscape & Phablets (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    .main-section {
+        padding: 25px 20px;
+    }
+
+    .main-content h1 {
+        font-size: 32px;
+    }
+
+    .main-content p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .main-cards {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    #about {
+        padding: 50px 20px 120px 20px;
+        gap: 40px;
+    }
+
+    .about-content h2 {
+        font-size: 28px;
+    }
+
+    #about-img1 {
+        width: 90%;
+        max-height: 340px;
+    }
+
+    #about-img2 {
+        width: 58%;
+        max-height: 230px;
+        top: 42%;
+        left: 2%;
+    }
+
+    .about-stats {
+        right: 2%;
+        top: -15px;
+        padding: 12px 16px;
+    }
+
+    .about-stats h2 {
+        font-size: 24px;
+    }
+
+    .about-stats p {
+        font-size: 13px;
+    }
+
+    #service {
+        padding: 0 20px 50px 20px;
+    }
+
+    .service-cards-pt {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card-badge {
+        top: -10px;
+        right: 15px;
+    }
+
+    #portfolio {
+        padding: 0 20px 50px 20px;
+    }
+
+    .portfolio-filter {
+        gap: 12px;
+        margin: 30px 0;
+    }
+
+    .portfolio-cards-pt {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #stats {
+        padding: 0 20px;
+    }
+
+    .stats-cards-pt {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stats-info {
+        gap: 30px;
+        margin: 35px 0;
+    }
+
+    .stats-content h2 {
+        font-size: 26px;
+    }
+
+    #team {
+        padding: 0 20px 40px 20px;
+    }
+
+    #contact {
+        padding: 0 20px 50px 20px;
+    }
+
+    .contact-card-1 {
+        padding: 30px 20px;
+        border-radius: 24px;
+    }
+
+    .contact-card-2 h2 {
+        font-size: 26px;
+    }
+
+    .contact-info-card {
+        gap: 25px;
+    }
+
+    .res-stats-pt {
+        gap: 20px;
+        padding: 15px 10px;
+        flex-wrap: wrap;
+    }
+
+    .res-stats {
+        flex: 1 1 80px;
+    }
+
+    #footer {
+        padding: 40px 20px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-contact-info {
+        grid-column: span 1;
+    }
+}
+
+/* Mobile Phones (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .navbar {
+        margin: 15px 4%;
+        padding: 12px 18px;
+        border-radius: 25px;
+    }
+
+    .hero-logo a {
+        font-size: 22px;
+    }
+
+    .main-content h1 {
+        font-size: 28px;
+        line-height: 1.25;
+    }
+
+    .main-content p {
+        font-size: 15px;
+        line-height: 25px;
+        margin-top: 15px;
+    }
+
+    .main-btns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin: 25px 0;
+    }
+
+    #main-get-btn,
+    #main-work-btn {
+        width: 100%;
+        text-align: center;
+        padding: 13px 20px;
+    }
+
+    #main-get-btn a,
+    #main-work-btn a {
+        display: block;
+        width: 100%;
+    }
+
+    .main-cards {
+        gap: 15px;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+
+    .main-cards h4 {
+        font-size: 24px;
+    }
+
+    .main-cards p {
+        font-size: 12px;
+        line-height: 1.3;
+        margin-top: 5px;
+    }
+
+    .section-title {
+        margin-bottom: 35px;
+    }
+
+    .section-title h3 {
+        font-size: 24px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    #about {
+        padding: 40px 15px 100px 15px;
+        gap: 35px;
+    }
+
+    .about-content h2 {
+        font-size: 24px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .about-content li {
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .about-content li p {
+        font-size: 13px;
+    }
+
+    .about-btn {
+        width: 100%;
+        text-align: center;
+        padding: 13px 20px;
+    }
+
+    .about-btn a {
+        display: block;
+        width: 100%;
+    }
+
     .about-img {
-        display: flex;
-        justify-content: center;
+        margin-top: 20px;
     }
+
+    #about-img1 {
+        width: 94%;
+        max-height: 280px;
+    }
+
+    #about-img2 {
+        width: 55%;
+        max-height: 180px;
+        top: 45%;
+        left: 0%;
+    }
+
+    .about-stats {
+        flex-direction: column;
+        padding: 8px 12px;
+        gap: 5px;
+        right: 0%;
+        top: -10px;
+    }
+
+    .about-stats h2 {
+        font-size: 18px;
+        margin-bottom: 0px;
+    }
+
+    .about-stats p {
+        font-size: 11px;
+    }
+
+    #service {
+        padding: 0 15px 45px 15px;
+    }
+
+    .service-cards {
+        padding: 25px 18px;
+    }
+
+    .service-cards h4 {
+        font-size: 19px;
+    }
+
+    .service-ad {
+        padding: 25px 15px;
+        margin-top: 35px;
+    }
+
+    .service-ad h3 {
+        font-size: 20px;
+    }
+
+    .service-ad a {
+        display: block;
+        width: 100%;
+        margin-top: 25px;
+        box-sizing: border-box;
+    }
+
+    #portfolio {
+        padding: 0 15px 45px 15px;
+        margin-bottom: 50px;
+    }
+
+    .portfolio-filter {
+        gap: 8px;
+        margin: 25px 0;
+    }
+
+    .portfolio-filter button {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .portfolio-ad {
+        padding: 25px 15px;
+        margin-top: 35px;
+    }
+
+    .portfolio-ad h3 {
+        font-size: 20px;
+    }
+
+    #portfolio-proj-btn,
+    #portfolio-work-btn {
+        display: block;
+        width: 100%;
+        margin: 12px 0 0 0;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    #stats {
+        padding: 0 15px;
+    }
+
+    .stats-cards {
+        padding: 25px 18px;
+    }
+
+    .stats-title {
+        font-size: 18px;
+    }
+
+    .stats-content h2 {
+        font-size: 24px;
+    }
+
+    .stats-list-item {
+        gap: 12px;
+    }
+
+    .stats-list-item i {
+        font-size: 24px;
+    }
+
+    .stats-list-item h4 {
+        font-size: 16px;
+    }
+
+    .stats-list-item p {
+        font-size: 13px;
+    }
+
+    #stats-proj-btn,
+    #stats-view-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 12px 0 0 0;
+        box-sizing: border-box;
+    }
+
+    #team {
+        padding: 0 15px 35px 15px;
+        margin-bottom: 30px;
+    }
+
+    #contact {
+        padding: 0 15px 45px 15px;
+        margin-bottom: 40px;
+    }
+
+    .contact-card-1 {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+
     .contact-card-1 h3 {
         font-size: 20px;
     }
-    .about-stats {
-        flex-direction: column;
-        padding: 5px;
+
+    .contact-card-2 h2 {
+        font-size: 22px;
     }
-    .about-stats h2 {
+
+    .contact-form div {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact-form button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .contact-info-card {
+        gap: 15px;
+        padding: 12px 15px;
+    }
+
+    .contact-info-card h4 {
+        font-size: 15px;
+    }
+
+    .contact-info-card h5 {
+        font-size: 13px;
+        word-break: break-all;
+    }
+
+    .contact-info-card p {
+        font-size: 12px;
+    }
+
+    .res-stats-pt {
+        gap: 10px;
+        padding: 12px 8px;
+        margin: 25px 0;
+    }
+
+    .res-stats {
+        min-width: 70px;
+    }
+
+    .res-stats h3 {
+        font-size: 18px;
+    }
+
+    .res-stats p {
+        font-size: 10px;
+    }
+
+    #footer {
+        padding: 35px 15px;
+    }
+
+    .footer-contact-info a {
+        font-size: 25px;
+    }
+}
+
+/* Extra-small screens (max-width: 360px) */
+@media screen and (max-width: 360px) {
+    .navbar {
+        margin: 10px 2%;
+        padding: 10px 14px;
+    }
+
+    .hero-logo a {
         font-size: 20px;
     }
-    #stats-proj-btn {
-        text-align: center;
-        font-weight: 600;
+
+    .main-content h1 {
+        font-size: 24px;
     }
-    #stats-view-btn {
-        text-align: center;
-        font-weight: 600;
+
+    .main-cards {
+        flex-direction: column;
+        gap: 12px;
     }
-    .contact-card-1 {
-        margin-top: 20px;
+
+    .main-cards div {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .section-title {
-        margin-bottom: 30px;
+
+    .main-cards div:last-child {
+        border-bottom: none;
+    }
+
+    .about-stats {
+        position: static;
+        margin-top: 15px;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #about-img2 {
+        display: none;
+    }
+
+    #about {
+        padding-bottom: 40px;
+    }
+
+    .res-stats-pt {
+        flex-direction: column;
+        gap: 15px;
     }
 }

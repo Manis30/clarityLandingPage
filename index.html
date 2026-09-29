@@ -636,16 +636,31 @@
         })
     })
 
-    closebtn.addEventListener('click', () => {
-        console.log("hii closebtn")
-        mobilemenu.classList.add('close-mobile-menu')
-        mobilemenu.classList.remove('.open-mobile-menu')
-    })
-    menubar.addEventListener('click', () => {
-        console.log("hii menubar")
-        mobilemenu.classList.remove('close-mobile-menu')
-        mobilemenu.classList.add('.open-mobile-menu')
-    })
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links-list a');
+
+    function closeMenu() {
+        mobilemenu.classList.add('close-mobile-menu');
+        mobilemenu.classList.remove('open-mobile-menu');
+    }
+
+    function openMenu() {
+        mobilemenu.classList.remove('close-mobile-menu');
+        mobilemenu.classList.add('open-mobile-menu');
+    }
+
+    closebtn.addEventListener('click', closeMenu);
+    menubar.addEventListener('click', openMenu);
+
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    mobilemenu.addEventListener('click', (e) => {
+        if (e.target === mobilemenu) {
+            closeMenu();
+        }
+    });
+
     window.addEventListener('scroll', () => {
         let current = "";
         sections.forEach(section => {
@@ -668,34 +683,32 @@
     owl.owlCarousel({
         items: 4,
         loop: true,
-        margin: 50,
+        margin: 30,
         autoplay: true,
-        autoplayTimeout: 1000,
+        autoplayTimeout: 2000,
         autoplayHoverPause: true,
         responsive: {
-
             0: {
-                items: 1
+                items: 1,
+                margin: 15
             },
-
             576: {
-                items: 1
+                items: 1,
+                margin: 20
             },
-
             768: {
-                items: 2
+                items: 2,
+                margin: 25
             },
-
             992: {
-                items: 2
+                items: 2,
+                margin: 30
             },
-
             1200: {
-                items: 3
+                items: 3,
+                margin: 30
             }
-
         }
-
     });
     $('.play').on('click', function () {
         owl.trigger('play.owl.autoplay', [1000])
